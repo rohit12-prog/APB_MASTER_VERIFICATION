@@ -5,14 +5,17 @@ class master_driver;
   mailbox #(master_trans) mbx_dr;
   
   covergroup cg;
-    TR: coverpoint drv_trans.transfer{bins t[] = {0,1}};
-    W_R:coverpoint drv_trans.write_read{bins wr[] = {0,1}};
-    AD: coverpoint drv_trans.addr_in{bins a[] =};
-    WI: coverpoint drv_trans.wdata_in{bins wi[]=};
-    ST: coverpoint drv_trans.strb_in{bins si[]=};
-    RI: coverpoint drv_trans.PRDATA{bins r[]=};
-    R: coverpoint drv_trans.PREADY{bins ready[]=};
-    SL: coverpoint drv_trans.PSLVERR{bins sl[]=};
+    TR: coverpoint drv_trans.transfer{bins t[] = {0,1};}
+    W_R:coverpoint drv_trans.write_read{bins wr[] = {0,1};}
+    AD: coverpoint drv_trans.addr_in{
+	bins low_addr  = {[0:63]};
+    	bins mid_addr  = {[64:127]};
+    	bins high_addr = {[128:255]};}
+    WI: coverpoint drv_trans.wdata_in;
+    ST: coverpoint drv_trans.strb_in{bins si[]= {[0:15]};}
+    RI: coverpoint drv_trans.PRDATA;
+    R: coverpoint drv_trans.PREADY{bins ready[]= {0,1};}
+    SL: coverpoint drv_trans.PSLVERR{bins sl[]= {0,1};}
   endgroup
                                       
     

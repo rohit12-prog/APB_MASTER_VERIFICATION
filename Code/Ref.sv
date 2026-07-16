@@ -27,8 +27,8 @@ class master_ref;
         
         if(ref_trans.PREADY == 1 && ref_trans.write_read == 1 && ref_trans.PSLVERR == 0)begin
           for(int i = 0; i < STRB_WIDTH; i++) begin
-            if(ref_trans.strb_in[b] == 1)begin
-              MEM[ref_trans.addr_in][b*8+:8] = ref_trans.wdata_in[b*8:8];
+            if(ref_trans.strb_in[i] == 1)begin
+              MEM[ref_trans.addr_in][i*8+:8] = ref_trans.wdata_in[i*8:8];
             end
           end
         end

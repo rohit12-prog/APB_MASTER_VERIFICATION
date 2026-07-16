@@ -14,7 +14,7 @@ class master_environment;
   master_sc sc;
   
   
-  function new (virtual ram drv_vif,virtual ram mon_vif,);
+  function new (virtual apb_master drv_vif,virtual apb_master mon_vif);
  			this.drv_vif=drv_vif;
  			this.mon_vif=mon_vif;
  endfunction

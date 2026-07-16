@@ -59,11 +59,7 @@ class master_driver;
       
       begin
         wait(vif.drv_cb.reset == 0);
-      end
-    join_any
-    disable fork;
-      
-    			vif.drv_cb.transfer <= 0;
+		vif.drv_cb.transfer <= 0;
                 vif.drv_cb.write_read <= 0;
                 vif.drv_cb.addr_in <= 0;
                 vif.drv_cb.wdata_in <= 0;
@@ -83,6 +79,31 @@ class master_driver;
                 
                 $display("PUT DRIVER Reset = %0t",$time);
                 mbx_dr.put(drv_trans);
+      end
+    join_any
+    disable fork;
+      
+    	/*	vif.drv_cb.transfer <= 0;
+                vif.drv_cb.write_read <= 0;
+                vif.drv_cb.addr_in <= 0;
+                vif.drv_cb.wdata_in <= 0;
+                vif.drv_cb.strb_in <= 0;
+                vif.drv_cb.PRDATA <= 0;
+                vif.drv_cb.PREADY <= 0;
+                vif.drv_cb.PSLVERR <= 0;
+                
+                drv_trans.transfer = 0;
+                drv_trans.write_read = 0;
+                drv_trans.addr_in = 0;
+                drv_trans.wdata_in = 0;
+                drv_trans.strb_in = 0;
+                drv_trans.PRDATA = 0;
+                drv_trans.PREADY = 0;
+                drv_trans.PSLVERR = 0;
+                
+                $display("PUT DRIVER Reset = %0t",$time);
+                mbx_dr.put(drv_trans);
+	*/
                 
                 $display("[%0t] [DRV] Driving Interface |transfer=%0b | write_read=%0b | addr_in=0x%0h | wdata_in=0x%0h | strb_in=0x%0h | PRDATA=0x%0h | PREADY=%0b | PSLVERR=%0b",$time,drv_trans.transfer,drv_trans.write_read,drv_trans.addr_in,drv_trans.wdata_in,drv_trans.strb_in,drv_trans.PRDATA,drv_trans.PREADY,drv_trans.PSLVERR);
       

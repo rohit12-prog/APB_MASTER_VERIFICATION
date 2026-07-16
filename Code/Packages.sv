@@ -1,4 +1,5 @@
 package master_package;
+ `include "define.svh"
  `include "Transaction.sv"
  `include "Generator.sv"
  `include "Driver.sv"

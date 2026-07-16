@@ -21,7 +21,7 @@ class master_driver;
     
   
   
-  function new(mailbox #(master_trans)mbx_gd, virtual apb_master.DRV vif);
+  function new(mailbox #(master_trans)mbx_gd, mailbox #(master_trans)mbx_dr, virtual apb_master.DRV vif);
     this.mbx_gd = mbx_gd;
     this.mbx_dr = mbx_dr;
     this.vif    = vif;
@@ -54,7 +54,7 @@ class master_driver;
               vif.drv_cb.PSLVERR <= drv_trans.PSLVERR;
             
             @(vif.drv_cb);
-            drv_cg.sample();
+            cg.sample();
             mbx_dr.put(drv_trans);
         end
            

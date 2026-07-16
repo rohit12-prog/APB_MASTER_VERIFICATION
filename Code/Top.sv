@@ -1,6 +1,7 @@
-`include "defines.svh"
+`include "define.svh"
 `include "Packages.sv"
 `include "Interface.sv"
+`include "Design.sv"
 module top();
   
   import master_package ::*;

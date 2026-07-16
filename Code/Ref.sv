@@ -46,7 +46,7 @@ class master_ref;
           begin
             ref_trans.error = ref_trans.PSLVERR;
   			$display("[%0t] [REF] ERROR transaction: %s addr=0x%0h  MEM not updated/checked",$time, ref_trans.write_read ? "WRITE" : "READ", ref_trans.addr_in);
-		  end
+	 end
       end
       
       else begin
